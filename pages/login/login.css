@@ -7,6 +7,14 @@ body {
     color: #023047
 }
 
+#error-container{
+    display: none;
+}
+
+#error-container.error-container{
+    display: flex;
+}
+
 .page {
     display: flex;
     flex-direction: column;
@@ -26,10 +34,6 @@ body {
     padding: 40px;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
     gap: 5px
-}
-
-.areaLogin img {
-    width: 420px;
 }
 
 .formLogin h1 {
