@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047
+}
+
+footer {
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2px 0;
+    margin: 0;
+}
+
+table {
+    table-layout: fixed;
+    width: 90rem;
+    display: table;
+}
+
+tr {
+    width: 100%;
+    display: table;
+    box-sizing: border-box;
+  }
+  
+th {
+    padding: 20px 15px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: left;
+    width: 14%;
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 12px;
+    width: 14%;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    min-height: calc(100vh - 20px);
+    background-color: #480ca8;
+}
+
+.page h1{
+    color: #f7f7f7;
+    width: 75%;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    z-index: 10;
+    overflow: hidden;
+    box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
+}
+
+.menu li a,
+.menu li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5em;
+    width: 5em;
+    line-height: 5em;
+    text-align: center;
+    color: #480ca8;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.1s ease-in-out;
+}
+
+.menu li a:hover,
+.menu li div.menu-button {
+    background: #480ca8;
+    color: #f7f7f7;
+}
+
+.rodape {
+    color: #4a4a4a;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.table-header {
+    background-color: #f7f7f7;
+    color: #480ca8;
+}
+
+.table-header th {
+    color: #4a4a4a;
+}
+
+.table-body {
+    height: 70vh;
+    width: inherit;
+    overflow-y: scroll;
+    display: block;
+    background-color: #d5d3d3;
+}
+
+.table-body tr {
+    border-bottom: solid 1px rgb(61, 61, 61);
+}
+
+.table-body tr:last-child {
+    border-bottom: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
