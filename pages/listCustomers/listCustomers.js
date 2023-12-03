@@ -28,7 +28,7 @@ onload = () => {
                         <td>${customer.email}</td>
                         <td>${customer.phone}</td>
                         <td>${customer.birthDate}</td>
-                        <td><a href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=customer&id=${customer.id}">Acessar</button></td>
+                        <td><a class="accessButton" href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=customer&id=${customer.id}">Acessar</button></td>
                     </tr>
                     `
             }

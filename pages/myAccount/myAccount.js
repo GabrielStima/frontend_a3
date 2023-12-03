@@ -2,17 +2,45 @@ const url = "http://localhost:8080/api/v1"
 
 function editRecord() {
     const fields = document.querySelectorAll(".form-group input");
-    fields.forEach(element => element.disabled = false);
+    fields.forEach(element => {
+        if (element.id !== 'profile') {
+            element.disabled = false
+        }
+    });
     actionButtons(true);
 }
+
 function cancelEdit() {
     const fields = document.querySelectorAll(".form-group input");
     fields.forEach(element => element.disabled = true);
     actionButtons(false);
 }
+
 function updateRecord() {
     const fields = document.querySelectorAll(".form-group input");
-    fields.forEach(element => element.disabled = true);
+    fields.forEach(element => console.log(element));
+}
+
+function closeModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+function modalForUpdatePassword() {
+    const modal = document.getElementById("myModal");
+
+    modal.style.display = "block";
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function updatePassword() {
+   alert('Senha Alterada com Sucesso');
+   closeModal(); 
 }
 
 function actionButtons(toggle) {
@@ -22,13 +50,17 @@ function actionButtons(toggle) {
             document.querySelector("#cancelAction").remove();
             document.querySelector("#updateAction").remove();
         }
-        actions.insertAdjacentHTML('beforeend', `<button id="editAction" onclick="editRecord()">Editar Registro</button>`);
+        actions.insertAdjacentHTML('beforeend', `
+            <button id="editAction" onclick="editRecord()">Editar Registro</button>
+            <button id="modalForUpdatePassword" onclick="modalForUpdatePassword()">Atualizar senha</button>
+        `);
     } else {
         if (document.querySelector("#editAction")) {
             document.querySelector("#editAction").remove();
+            document.querySelector("#modalForUpdatePassword").remove();
         }
-        actions.insertAdjacentHTML('beforeend', 
-        `
+        actions.insertAdjacentHTML('beforeend',
+            `
         <button id="cancelAction" onclick="cancelEdit()">Cancelar</button>
         <button id="updateAction" onclick="updateRecord()">Atualizar Registro</button>
         `);

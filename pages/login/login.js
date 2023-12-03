@@ -34,7 +34,7 @@ function handleLoginSubmit(event) {
     })
         .then(async res => {
             if (res.status === 200) {
-                const { token, ref } = await res.json();
+                const { token, ref, per } = await res.json();
 
                 if (!token) {
                     handleUnexpectedError("null token");
@@ -42,6 +42,7 @@ function handleLoginSubmit(event) {
 
                 sessionStorage.setItem("token", token);
                 sessionStorage.setItem("ref", ref);
+                sessionStorage.setItem("per", per);
                 window.location.href = "pages/home/index.html";
 
             } else if (res.status === 404 || res.status === 400) {
