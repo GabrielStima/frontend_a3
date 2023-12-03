@@ -46,15 +46,21 @@ td {
     width: 14%;
 }
 
+form {
+    width: 75%;
+    max-height: 80vh;
+    background-color: #f7f7f7;
+}
+
 .page {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    justify-content: center;
     width: 100%;
     min-height: calc(100vh - 20px);
     background-color: #480ca8;
+    padding-top: 2rem;
 }
 
 .page h1{
@@ -127,6 +133,19 @@ td {
 
 .table-body tr:last-child {
     border-bottom: none;
+}
+
+.form-group{
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.form-group input{
+    margin: 10px 0;
+    padding: 10px;
+    border: solid 1px #b9b9b9;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar {

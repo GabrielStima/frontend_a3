@@ -1,6 +1,10 @@
 const url = "http://localhost:8080/api/v1"
 
 onload = () => {
+    if (!window.sessionStorage.getItem("token")) {
+        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    }
+
     fetch(`${url}/users`, {
         method: "GET",
         headers: {
@@ -20,7 +24,7 @@ onload = () => {
                     <td>${user.phone}</td>
                     <td>${user.birthDate}</td>
                     <td>${user.profile}</td>
-                    <td><button>Acessar</button></td>
+                    <td><a href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=user&id=${user.id}">Acessar</button></td>
                 </tr>
                 `
             }
