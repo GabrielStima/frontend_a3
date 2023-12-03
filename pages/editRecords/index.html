@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Edição de Registros</title>
     <link rel="stylesheet" href="../../main.css">
-    <script src="home.js"></script>
+    <script src="editRecords.js"></script>
 </head>
-
 <body>
     <header>
         <nav>
             <ul class="menu">
                 <li title="Home">
-                    <div class="menu-button">
+                    <a href="../home/index.html" class="home">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-house" viewBox="0 0 16 16">
                             <path
                                 d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
                         </svg>
-                    </div>
+                    </a>
                 </li>
                 <li title="Clientes">
                     <a href="../listCustomers/index.html" class="customers">
@@ -62,8 +60,8 @@
                         </svg>
                     </a>
                 </li>
-                <li title="Minha Conta">
-                    <a href="../myAccount/index.html" class="account">
+                <li title="Minha Clientes">
+                    <a href="../myAccount/index.html" class="users">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-gear" viewBox="0 0 16 16">
                             <path
@@ -84,10 +82,12 @@
             </ul>
         </nav>
     </header>
-    <div class="page"></div>
+    <div class="page">
+        <h1>Edição de Registros</h1>
+        <form id="editRegisters"></form>
+    </div>
     <footer>
         <p class="rodape">© Direitos registrado ao grupo 12</p>
     </footer>
 </body>
-
 </html>
