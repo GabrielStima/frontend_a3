@@ -20,14 +20,15 @@ table {
     table-layout: fixed;
     width: 90rem;
     display: table;
+    border-radius: 4px;
 }
 
 tr {
     width: 100%;
     display: table;
     box-sizing: border-box;
-  }
-  
+}
+
 th {
     padding: 20px 15px;
     font-weight: 500;
@@ -49,6 +50,7 @@ td {
 form {
     width: 75%;
     max-height: 80vh;
+    border-radius: 4px;
     background-color: #f7f7f7;
 }
 
@@ -58,12 +60,31 @@ form {
     align-items: center;
     align-content: center;
     width: 100%;
-    min-height: calc(100vh - 20px);
+    min-height: calc(100vh - (2rem + 20px));
     background-color: #480ca8;
     padding-top: 2rem;
 }
 
-.page h1{
+.page .headPage {
+    color: #f7f7f7;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headPage a{
+    padding: 10px 2rem;
+    color: #023047;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    border: none;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.page .presentation {
     color: #f7f7f7;
     width: 75%;
 }
@@ -127,25 +148,96 @@ form {
     background-color: #d5d3d3;
 }
 
-.table-body tr {
-    border-bottom: solid 1px rgb(61, 61, 61);
+.table-body tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.accessButton {
+    padding: 5px 30%;
+    text-decoration: none;
+    color: #f7f7f7;
+    background-color: #480ca8;
+    border-radius: 4px;
 }
 
 .table-body tr:last-child {
     border-bottom: none;
 }
 
-.form-group{
+.form-group {
     width: calc(100% - 40px);
     display: flex;
     flex-direction: column;
     margin: 20px;
 }
-.form-group input{
+
+.form-group input {
     margin: 10px 0;
     padding: 10px;
     border: solid 1px #b9b9b9;
     border-radius: 4px;
+}
+
+.action-group {
+    width: 75%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-group button {
+    border: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.action-group button:hover {
+    color: #f7f7f7;
+    background-color: #7858aa;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 4px;
+    border: none;
+    width: 40%;
+}
+
+.actionModal{
+    display: flex;
+    margin: 20px;
+    justify-content: flex-end;  
+}
+
+.actionModal button{
+    padding: 10px 2rem;
+    margin-left: 5px;
+    background-color: #480ca8;
+    color: #f7f7f7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.actionModal button:hover,
+.actionModal button:focus {
+    background-color: #7858aa;
 }
 
 ::-webkit-scrollbar {

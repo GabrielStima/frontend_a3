@@ -26,7 +26,7 @@ onload = () => {
                         <td>${store.cnpj}</td>
                         <td>${store.name}</td>
                         <td>${store.address}</td>
-                        <td><a href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=store&id=${store.id}">Acessar</button></td>
+                        <td><a class="accessButton" href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=store&id=${store.id}">Acessar</button></td>
                     </tr>
                     `
             }
