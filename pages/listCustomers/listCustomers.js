@@ -1,15 +1,15 @@
 const url = "http://localhost:8080/api/v1"
 
 onload = () => {
-    if (!window.sessionStorage.getItem("token")) {
-        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
-    }
+    // if (!window.sessionStorage.getItem("token")) {
+    //     window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    // }
     
     fetch(`${url}/customers`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": sessionStorage.getItem("token")
+            // "Authorization": sessionStorage.getItem("token")
         }
     }).then(async res => {
         if (!res.ok) {

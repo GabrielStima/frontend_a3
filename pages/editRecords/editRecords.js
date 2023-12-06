@@ -29,7 +29,7 @@ function updateRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...update })
         }).then(async res => {
@@ -50,7 +50,7 @@ function updateRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...update })
         }).then(async res => {
@@ -71,7 +71,7 @@ function updateRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...update })
         }).then(async res => {
@@ -92,7 +92,7 @@ function updateRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...update })
         }).then(async res => {
@@ -122,7 +122,7 @@ function createRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...record })
         }).then(async res => {
@@ -143,7 +143,7 @@ function createRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...record })
         }).then(async res => {
@@ -164,7 +164,7 @@ function createRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...record })
         }).then(async res => {
@@ -185,7 +185,7 @@ function createRecord() {
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": sessionStorage.getItem("token")
+                // "Authorization": sessionStorage.getItem("token")
             },
             body: JSON.stringify({ ...update })
         }).then(async res => {
@@ -266,6 +266,10 @@ function newRecordTemplate(fields) {
 }
 
 onload = () => {
+    // if (!window.sessionStorage.getItem("token")) {
+    //     window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    // }
+
     if (type === 'customer') {
         const fields = [
             { property: 'firstName', field: 'Nome' },
@@ -279,7 +283,7 @@ onload = () => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": sessionStorage.getItem("token")
+                    // "Authorization": sessionStorage.getItem("token")
                 }
             }).then(async res => {
                 if (!res.ok) {
@@ -311,7 +315,7 @@ onload = () => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": sessionStorage.getItem("token")
+                    // "Authorization": sessionStorage.getItem("token")
                 }
             }).then(async res => {
                 if (!res.ok) {
@@ -343,7 +347,7 @@ onload = () => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": sessionStorage.getItem("token")
+                    // "Authorization": sessionStorage.getItem("token")
                 }
             }).then(async res => {
                 if (!res.ok) {
@@ -377,7 +381,7 @@ onload = () => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": sessionStorage.getItem("token")
+                    // "Authorization": sessionStorage.getItem("token")
                 }
             }).then(async res => {
                 if (!res.ok) {

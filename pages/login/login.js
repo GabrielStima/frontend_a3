@@ -25,38 +25,40 @@ function handleLoginSubmit(event) {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    fetch(`${url}/user/login`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-    })
-        .then(async res => {
-            if (res.status === 200) {
-                const { token, ref, per } = await res.json();
+    // fetch(`${url}/user/login`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({ email, password })
+    // })
+    //     .then(async res => {
+    //         if (res.status === 200) {
+    //             const { token, ref, per } = await res.json();
 
-                if (!token) {
-                    handleUnexpectedError("null token");
-                }
+    //             if (!token) {
+    //                 handleUnexpectedError("null token");
+    //             }
 
-                sessionStorage.setItem("token", token);
-                sessionStorage.setItem("ref", ref);
-                sessionStorage.setItem("per", per);
-                window.location.href = "pages/home/index.html";
+    //             sessionStorage.setItem("token", token);
+    //             sessionStorage.setItem("ref", ref);
+    //             sessionStorage.setItem("per", per);
+    //             window.location.href = "pages/home/index.html";
 
-            } else if (res.status === 404 || res.status === 400) {
-                handleInvalidData(res);
-            }
-        })
-        .catch(err => {
-            handleUnexpectedError(err);
-        })
+    //         } else if (res.status === 404 || res.status === 400) {
+    //             handleInvalidData(res);
+    //         }
+    //     })
+    //     .catch(err => {
+    //         handleUnexpectedError(err);
+    //     })
+
+        window.location.href = "pages/home/index.html";
 }
 
-onload = () => {
-    if (window.sessionStorage.getItem("token")) {
-        window.sessionStorage.removeItem("token");
-        window.sessionStorage.removeItem("ref");
-    }
-}
+// onload = () => {
+//     if (window.sessionStorage.getItem("token")) {
+//         window.sessionStorage.removeItem("token");
+//         window.sessionStorage.removeItem("ref");
+//     }
+// }
