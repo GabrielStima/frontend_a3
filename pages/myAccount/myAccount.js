@@ -92,11 +92,12 @@ function template(item, fields) {
 }
 
 onload = () => {
-    if (!window.sessionStorage.getItem("token")) {
-        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
-    }
+    // if (!window.sessionStorage.getItem("token")) {
+    //     window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    // }
 
-    const userId = window.sessionStorage.getItem('ref');
+    // const userId = window.sessionStorage.getItem('ref');
+    const userId = 'DEVE SER O ID DO USER';
 
     const fields = [
         { property: 'firstName', field: 'Nome' },
@@ -111,7 +112,7 @@ onload = () => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": sessionStorage.getItem("token")
+            // "Authorization": sessionStorage.getItem("token")
         }
     }).then(async res => {
         if (!res.ok) {
