@@ -1,12 +1,13 @@
-const url = "http://localhost:8080/api/v1"
+const url = "http://localhost:8000/api/v1"
 
 onload = () => {
     // if (!window.sessionStorage.getItem("token")) {
-    //     window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    //     window.location.pathname = '../../index.html';
     // }
 
     fetch(`${url}/users`, {
         method: "GET",
+        mode: 'cors',
         headers: {
             "Content-Type": "application/json",
             // "Authorization": sessionStorage.getItem("token")
@@ -18,13 +19,13 @@ onload = () => {
             const template = (user) => {
                 return `
                 <tr>
-                    <td>${user.firstName}</td>
-                    <td>${user.lastName}</td>
+                    <td>${user.firstname}</td>
+                    <td>${user.lastname}</td>
                     <td>${user.email}</td>
                     <td>${user.phone}</td>
-                    <td>${user.birthDate}</td>
+                    <td>${user.birthdate}</td>
                     <td>${user.profile}</td>
-                    <td><a class="accessButton" href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=user&id=${user.id}">Acessar</button></td>
+                    <td><a class="accessButton" href="../editRecords/index.html?type=user&id=${user.id}">Acessar</button></td>
                 </tr>
                 `
             }

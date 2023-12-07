@@ -1,12 +1,13 @@
-const url = "http://localhost:8080/api/v1"
+const url = "http://localhost:8000/api/v1"
 
 onload = () => {
     // if (!window.sessionStorage.getItem("token")) {
-    //     window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    //     window.location.pathname = '../../index.html';
     // }
 
     fetch(`${url}/products`, {
         method: "GET",
+        mode: 'cors',
         headers: {
             "Content-Type": "application/json",
             // "Authorization": sessionStorage.getItem("token")
@@ -14,7 +15,7 @@ onload = () => {
     }).then(async res => {
         if (!res.ok) {
             if (res.status === 401) {
-                window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                window.location.pathname = '../../index.html';
             }
             console.error('asdasdasdasdasdas', res);
         } else {
@@ -28,7 +29,7 @@ onload = () => {
                         <td>${product.stock}</td>
                         <td>${product.brand}</td>
                         <td>${product.category}</td>
-                        <td><a class="accessButton" href="/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/pages/editRecords/index.html?type=product&id=${product.id}">Acessar</button></td>
+                        <td><a class="accessButton" href="../editRecords/index.html?type=product&id=${product.id}">Acessar</button></td>
                     </tr>
                     `
             }

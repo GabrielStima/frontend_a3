@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/v1"
+const url = "http://localhost:8000/api/v1"
 
 function editRecord() {
     const fields = document.querySelectorAll(".form-group input");
@@ -93,7 +93,7 @@ function template(item, fields) {
 
 onload = () => {
     // if (!window.sessionStorage.getItem("token")) {
-    //     window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+    //     window.location.pathname = '../../index.html';
     // }
 
     // const userId = window.sessionStorage.getItem('ref');
@@ -110,6 +110,7 @@ onload = () => {
 
     fetch(`${url}/user/${userId}`, {
         method: "GET",
+        mode: 'cors',
         headers: {
             "Content-Type": "application/json",
             // "Authorization": sessionStorage.getItem("token")
@@ -117,7 +118,7 @@ onload = () => {
     }).then(async res => {
         if (!res.ok) {
             if (res.status === 401) {
-                window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                window.location.pathname = '../../index.html';
             }
             console.error('asdasdasdasdasdas', res);
         } else {

@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/v1"
+const url = "http://localhost:8000/api/v1"
 
 function handleUnexpectedError(error) {
     document.getElementById("error-info").innerHTML = "Um erro aconteceu por favor contate o suporte";

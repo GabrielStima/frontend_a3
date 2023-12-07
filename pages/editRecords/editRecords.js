@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/v1"
+const url = "http://localhost:8000/api/v1"
 const params = new URLSearchParams(document.location.search);
 const type = params.get("type");
 const id = params.get("id");
@@ -24,8 +24,8 @@ function updateRecord() {
     });
 
     if (type === 'customer') {
-        fetch(`${url}/customer/${id}`, {
-            method: "PATCH",
+        fetch(`${url}/customers/customer/${id}`, {
+            method: "PUT",
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function updateRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('asdasdasdasdasdas', res);
             } else {
@@ -45,8 +45,8 @@ function updateRecord() {
         })
     }
     if (type === 'product') {
-        fetch(`${url}/product/${id}`, {
-            method: "PATCH",
+        fetch(`${url}/products/product/${id}`, {
+            method: "PUT",
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function updateRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -66,8 +66,8 @@ function updateRecord() {
         })
     }
     if (type === 'store') {
-        fetch(`${url}/store/${id}`, {
-            method: "PATCH",
+        fetch(`${url}/stores/store/${id}`, {
+            method: "PUT",
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function updateRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -87,8 +87,8 @@ function updateRecord() {
         })
     }
     if (type === 'user') {
-        fetch(`${url}/user/${id}`, {
-            method: "PATCH",
+        fetch(`${url}/users/user/${id}`, {
+            method: "PUT",
             mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
@@ -98,7 +98,7 @@ function updateRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -117,7 +117,7 @@ function createRecord() {
     });
 
     if (type === 'customer') {
-        fetch(`${url}/customer`, {
+        fetch(`${url}/customers/`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -128,7 +128,7 @@ function createRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -138,7 +138,7 @@ function createRecord() {
         })
     }
     if (type === 'product') {
-        fetch(`${url}/product/${id}`, {
+        fetch(`${url}/products/`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -149,7 +149,7 @@ function createRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -159,7 +159,7 @@ function createRecord() {
         })
     }
     if (type === 'store') {
-        fetch(`${url}/store/${id}`, {
+        fetch(`${url}/stores/`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -170,7 +170,7 @@ function createRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -180,7 +180,7 @@ function createRecord() {
         })
     }
     if (type === 'user') {
-        fetch(`${url}/user/${id}`, {
+        fetch(`${url}/users/`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -191,7 +191,7 @@ function createRecord() {
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
-                    window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                    window.location.pathname = '../../index.html';
                 }
                 console.error('Error', res);
             } else {
@@ -272,15 +272,16 @@ onload = () => {
 
     if (type === 'customer') {
         const fields = [
-            { property: 'firstName', field: 'Nome' },
-            { property: 'lastName', field: 'Sobrenome' },
+            { property: 'firstname', field: 'Nome' },
+            { property: 'lastname', field: 'Sobrenome' },
             { property: 'email', field: 'Email' },
             { property: 'phone', field: 'Telefone' },
-            { property: 'birthDate', field: 'Data de Nascimento' }
+            { property: 'birthdate', field: 'Data de Nascimento' }
         ]
         if (id) {
-            fetch(`${url}/customer/${id}`, {
+            fetch(`${url}/customers/customer/${id}`, {
                 method: "GET",
+                mode: 'cors',
                 headers: {
                     "Content-Type": "application/json",
                     // "Authorization": sessionStorage.getItem("token")
@@ -288,7 +289,7 @@ onload = () => {
             }).then(async res => {
                 if (!res.ok) {
                     if (res.status === 401) {
-                        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                        window.location.pathname = '../../index.html';
                     }
                     console.error('asdasdasdasdasdas', res);
                 } else {
@@ -311,8 +312,9 @@ onload = () => {
         ]
 
         if (id) {
-            fetch(`${url}/product/${id}`, {
+            fetch(`${url}/products/product/${id}`, {
                 method: "GET",
+                mode: 'cors',
                 headers: {
                     "Content-Type": "application/json",
                     // "Authorization": sessionStorage.getItem("token")
@@ -320,7 +322,7 @@ onload = () => {
             }).then(async res => {
                 if (!res.ok) {
                     if (res.status === 401) {
-                        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                        window.location.pathname = '../../index.html';
                     }
                     console.error('asdasdasdasdasdas', res);
                 } else {
@@ -338,13 +340,13 @@ onload = () => {
         const fields = [
             { property: 'cnpj', field: 'CNPJ' },
             { property: 'name', field: 'Nome' },
-            { property: 'address', field: 'Endereço' },
-            { property: 'customerId', field: 'Cordenador da Loja' }
+            { property: 'address', field: 'Endereço' }
         ]
 
         if (id) {
-            fetch(`${url}/store/${id}`, {
+            fetch(`${url}/stores/store/${id}`, {
                 method: "GET",
+                mode: 'cors',
                 headers: {
                     "Content-Type": "application/json",
                     // "Authorization": sessionStorage.getItem("token")
@@ -352,7 +354,7 @@ onload = () => {
             }).then(async res => {
                 if (!res.ok) {
                     if (res.status === 401) {
-                        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                        window.location.pathname = '../../index.html';
                     }
                     console.error('asdasdasdasdasdas', res);
                 } else {
@@ -368,17 +370,18 @@ onload = () => {
 
     if (type === 'user') {
         const fields = [
-            { property: 'firstName', field: 'Nome' },
-            { property: 'lastName', field: 'Sobrenome' },
+            { property: 'firstname', field: 'Nome' },
+            { property: 'lastname', field: 'Sobrenome' },
             { property: 'email', field: 'Email' },
             { property: 'phone', field: 'Telefone' },
-            { property: 'birthDate', field: 'Data de Nascimento' },
+            { property: 'birthdate', field: 'Data de Nascimento' },
             { property: 'profile', field: 'Perfil' },
         ]
 
         if (id) {
-            fetch(`${url}/user/${id}`, {
+            fetch(`${url}/users/user/${id}`, {
                 method: "GET",
+                mode: 'cors',
                 headers: {
                     "Content-Type": "application/json",
                     // "Authorization": sessionStorage.getItem("token")
@@ -386,7 +389,7 @@ onload = () => {
             }).then(async res => {
                 if (!res.ok) {
                     if (res.status === 401) {
-                        window.location.pathname = '/D:/Reposit%C3%B3rio%20Pessoal/frontend_a3/index.html';
+                        window.location.pathname = '../../index.html';
                     }
                     console.error('asdasdasdasdasdas', res);
                 } else {
