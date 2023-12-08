@@ -120,7 +120,7 @@ onload = () => {
             if (res.status === 401) {
                 window.location.pathname = '../../index.html';
             }
-            console.error('asdasdasdasdasdas', res);
+            console.error('Error', res);
         } else {
             const user = await res.json();
             template(user, fields);

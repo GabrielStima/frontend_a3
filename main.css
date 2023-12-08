@@ -18,7 +18,7 @@ footer {
 
 table {
     table-layout: fixed;
-    width: 90rem;
+    width: 75%;
     display: table;
     border-radius: 4px;
 }
@@ -89,6 +89,10 @@ form {
     width: 75%;
 }
 
+.menuToggle{
+    display: none;
+}
+
 .menu {
     position: fixed;
     bottom: 0;
@@ -142,7 +146,6 @@ form {
 
 .table-body {
     height: 70vh;
-    width: inherit;
     overflow-y: scroll;
     display: block;
     background-color: #d5d3d3;
@@ -250,4 +253,41 @@ form {
 
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    table{
+        margin-left: 5rem;
+    }
+    .page .headPage {
+        margin-left: 5rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  
+    .menu{
+        display: none;
+    }
+    .menuToggle{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 4rem;
+    }
+    .menuToggle svg{
+        background-color: #f7f7f7;
+        border-radius: 4px;
+        padding: 5px;
+    }
+  }
+
+@media screen {
+    
+}
+
+@media screen {
+    
 }

@@ -17,7 +17,7 @@ onload = () => {
             if (res.status === 401) {
                 window.location.pathname = '../../index.html';
             }
-            console.error('asdasdasdasdasdas', res);
+            console.error('Error', res);
         } else {
             const customerList = await res.json();
             const tbody = document.querySelector("#list-informations");

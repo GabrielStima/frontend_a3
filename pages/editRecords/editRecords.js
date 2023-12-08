@@ -16,6 +16,93 @@ function cancelEdit() {
     actionButtons(false);
 }
 
+function deleteRecord() {
+    if (type === 'customer') {
+        fetch(`${url}/customers/customer/${id}`, {
+            method: "DELETE",
+            mode: 'cors',
+            headers: {
+                "Content-Type": "application/json",
+                // "Authorization": sessionStorage.getItem("token")
+            }
+        }).then(async res => {
+            if (!res.ok) {
+                if (res.status === 401) {
+                    window.location.pathname = '../../index.html';
+                }
+                console.error('Error', res);
+            } else {
+                if(res.status === 204){
+                    window.location.href = '../listCustomers/index.html';
+                }
+            }
+        })
+    }
+    if (type === 'product') {
+        fetch(`${url}/products/product/${id}`, {
+            method: "DELETE",
+            mode: 'cors',
+            headers: {
+                "Content-Type": "application/json",
+                // "Authorization": sessionStorage.getItem("token")
+            }
+        }).then(async res => {
+            if (!res.ok) {
+                if (res.status === 401) {
+                    window.location.pathname = '../../index.html';
+                }
+                console.error('Error', res);
+            } else {
+                if(await res.status() === 204){
+                    window.location.href = '../listProducts/index.html';
+                }
+            }
+        })
+    }
+    if (type === 'store') {
+        fetch(`${url}/stores/store/${id}`, {
+            method: "DELETE",
+            mode: 'cors',
+            headers: {
+                "Content-Type": "application/json",
+                // "Authorization": sessionStorage.getItem("token")
+            }
+        }).then(async res => {
+            if (!res.ok) {
+                if (res.status === 401) {
+                    window.location.pathname = '../../index.html';
+                }
+                console.error('Error', res);
+            } else {
+                if(await res.status() === 204){
+                    window.location.href = '../listStores/index.html';
+                }
+            }
+        })
+    }
+    if (type === 'user') {
+        fetch(`${url}/users/user/${id}`, {
+            method: "DELETE",
+            mode: 'cors',
+            headers: {
+                "Content-Type": "application/json",
+                // "Authorization": sessionStorage.getItem("token")
+            }
+        }).then(async res => {
+            if (!res.ok) {
+                if (res.status === 401) {
+                    window.location.pathname = '../../index.html';
+                }
+                console.error('Error', res);
+            } else {
+                if(await res.status() === 204){
+                    window.location.href = '../listUsers/index.html';
+                }
+            }
+        })
+    }
+}
+
 function updateRecord() {
     const fields = document.querySelectorAll(".form-group input");
     let update = {};
@@ -37,10 +124,9 @@ function updateRecord() {
                 if (res.status === 401) {
                     window.location.pathname = '../../index.html';
                 }
-                console.error('asdasdasdasdasdas', res);
+                console.error('Error', res);
             } else {
-                const customer = await res.json();
-                existentRecordTemplate(customer, fields);
+                window.location.reload(true)
             }
         })
     }
@@ -60,8 +146,7 @@ function updateRecord() {
                 }
                 console.error('Error', res);
             } else {
-                const product = await res.json();
-                existentRecordTemplate(product, fields);
+                window.location.reload(true)
             }
         })
     }
@@ -81,8 +166,7 @@ function updateRecord() {
                 }
                 console.error('Error', res);
             } else {
-                const store = await res.json();
-                existentRecordTemplate(store, fields);
+                window.location.reload(true)
             }
         })
     }
@@ -102,8 +186,7 @@ function updateRecord() {
                 }
                 console.error('Error', res);
             } else {
-                const user = await res.json();
-                existentRecordTemplate(user, fields);
+                window.location.reload(true)
             }
         })
     }
@@ -113,7 +196,12 @@ function createRecord() {
     const fields = document.querySelectorAll(".form-group input");
     let record = {};
     fields.forEach(element => {
-        record[element.id] = element.value
+        if(element.id === 'birthdate'){
+            let dataFormat = element.value.split("/")
+            record[element.id] = ""+dataFormat[2]+dataFormat[1]+dataFormat[0]
+        }else{
+            record[element.id] = element.value
+        }
     });
 
     if (type === 'customer') {
@@ -187,7 +275,7 @@ function createRecord() {
                 "Content-Type": "application/json",
                 // "Authorization": sessionStorage.getItem("token")
             },
-            body: JSON.stringify({ ...update })
+            body: JSON.stringify({ ...record })
         }).then(async res => {
             if (!res.ok) {
                 if (res.status === 401) {
@@ -209,10 +297,14 @@ function actionButtons(toggle) {
             document.querySelector("#cancelAction").remove();
             document.querySelector("#updateAction").remove();
         }
-        actions.insertAdjacentHTML('beforeend', `<button id="editAction" onclick="editRecord()">Editar Registro</button>`);
+        actions.insertAdjacentHTML('beforeend', `
+            <button id="editAction" onclick="editRecord()">Editar Registro</button>
+            <button id="deleteAction" style="background-color: #c31c1c; color: white;" onclick="deleteRecord()">Deletar Registro</button>
+            `);
     } else {
         if (document.querySelector("#editAction")) {
             document.querySelector("#editAction").remove();
+            document.querySelector("#deleteAction").remove();
         }
         actions.insertAdjacentHTML('beforeend', 
         `
@@ -291,7 +383,7 @@ onload = () => {
                     if (res.status === 401) {
                         window.location.pathname = '../../index.html';
                     }
-                    console.error('asdasdasdasdasdas', res);
+                    console.error('Error', res);
                 } else {
                     const customer = await res.json();
                     existentRecordTemplate(customer, fields);
@@ -324,7 +416,7 @@ onload = () => {
                     if (res.status === 401) {
                         window.location.pathname = '../../index.html';
                     }
-                    console.error('asdasdasdasdasdas', res);
+                    console.error('Error', res);
                 } else {
                     const product = await res.json();
                     existentRecordTemplate(product, fields);
@@ -356,7 +448,7 @@ onload = () => {
                     if (res.status === 401) {
                         window.location.pathname = '../../index.html';
                     }
-                    console.error('asdasdasdasdasdas', res);
+                    console.error('Error', res);
                 } else {
                     const store = await res.json();
                     existentRecordTemplate(store, fields);
@@ -391,7 +483,7 @@ onload = () => {
                     if (res.status === 401) {
                         window.location.pathname = '../../index.html';
                     }
-                    console.error('asdasdasdasdasdas', res);
+                    console.error('Error', res);
                 } else {
                     const user = await res.json();
                     existentRecordTemplate(user, fields);
